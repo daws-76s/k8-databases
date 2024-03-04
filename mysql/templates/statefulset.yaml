@@ -25,6 +25,8 @@ spec:
       containers:
       - name: mysql
         image: "joindevops/mysql:{{ .Values.statefulset.imageVersion }}"
+        args:
+        - "--ignore-db-dir=lost+found"
         envFrom:
         - configMapRef:
             name: mysql
