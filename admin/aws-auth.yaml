@@ -14,7 +14,7 @@ data:
     - groups:
       - roboshop-admin
       userarn: arn:aws:iam::315069654700:user/ramesh
-      username: ramesh
+      username: raheem
 kind: ConfigMap
 metadata:
   name: aws-auth
