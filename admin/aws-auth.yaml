@@ -11,6 +11,10 @@ data:
       - roboshop-pod-reader
       userarn: arn:aws:iam::315069654700:user/ramesh
       username: ramesh
+    - groups:
+      - roboshop-admin
+      userarn: arn:aws:iam::315069654700:user/ramesh
+      username: ramesh
 kind: ConfigMap
 metadata:
   name: aws-auth
