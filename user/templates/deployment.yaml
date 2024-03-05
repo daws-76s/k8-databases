@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  namespace: roboshop
+  labels: # these labels are deployment labels
+    app: user
+    project: roboshop
+    tier: app
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels: # these labels are used to find the pods
+      app: user
+      project: roboshop
+      tier: app
+  template:
+    metadata:
+      labels: # these labels are pod labels
+        app: user
+        project: roboshop
+        tier: app
+    spec:
+      containers:
+      - name: user
+        image: "joindevops/user:{{ .Values.deployment.imageVersion }}"
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: user
